@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- saved from url=(0235)file:///D:/workspace/2-%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C/22-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/2021%E5%B9%B4%E5%BA%A6/12-%E6%96%87%E7%AB%A0%E7%BB%93%E6%9E%84%E6%A2%B3%E7%90%86/1-%E7%BD%91%E7%AB%99/1-help/GenePlexus%20_%20Help.html -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DDK-Linker| Case-study</title>
+
+
+   
+
+</head>
+    <body>
+
+<style>
+    h1{line-height:150%} 
+    h3 { padding-top: 1em; }
+    h4 { padding-top: 0.75em;}
+    h5 { padding-top: 0.5em;}
+	body {font-family:'Source Sans Pro',sans-serif;
+	font-size: 15px;line-height:150%}
+</style>
+
+    <div>
+        <div id="content-padding" class="ps-3 pe-4 pt-2">
+        <h1 id="case-study">Case study: DDK-Linker explores proteomic data for disease signals of Alzheimer's disease</h1>
+
+		<h2 id="dataset-summary">1	Dataset summary</h2>
+			<p>Blood proteins are crucial to understand the disease mechanism for Alzheimer's disease (AD). Here, we use the proteomic datasets from "<a href="https://pubmed.ncbi.nlm.nih.gov/34032364/" target="_blank">Alzheimers Dement, 18:88</a>" to show the case study. This study identified 429 differentially expressed genes (DEGs) by comparing AD patients with healthy controls.</p>
+			
+			
+		<h2 id="submission">2	Data submission</h2>
+			<p>We submitted 429 plasma proteins (Genes of Interest) to DDK-linker. We selected the linkage algorithms ("DeepWalk embedding algorithm" and "RWR diffusion algorithm") to identify the disease signals. And the known AD genes (we chose the cutoff value of 0.3) were used as the algorithm seeds (Figure 1).</p>
+			<p align="center"><img align="center" width="500px" src="./tutorial-fig/figure-1.png"></p>
+			<p align="center" style="font-family: arial; font-size: 13px;">Figure 1. Input page (This case study has been integrated DDK-Linker as “Example 1”).</p>
+			
+		<h2 id="list">3	List of candidate disease genes (disease signals)</h2>
+			<p>After submitting, DDK-Linker performed the linkage analysis to discover disease-associated signals (98 candidate disease-associated genes) in submitted genes. Click on "Details" for each gene we can examine its corresponding linkages with known disease genes (Figure 2). </p>
+			<p>Among the top 18 high confidence candidates, we found two most promising and biologically plausible genes: IGFBP3 and FLT1.</p>
+			<p align="center"><img align="center" width="800px" src="./tutorial-fig/figure-2.png"></p>
+			<p align="center" style="font-family: arial; font-size: 13px;">Figure 2. The list of candidate disease genes.</p>
+			
+		<h2 id="FLT1">4	Graph for the linkages between FLT1 and known disease genes</h2>
+			<p align="center"><img align="center" width="800px" src="./tutorial-fig/figure-3.png"></p>
+			<p align="center" style="font-family: arial; font-size: 13px;">Figure 3. The linkages between FLT1 and known disease genes.</p>
+			<p>In Figure 3, FLT1 has linkages with the known disease gene VEGFA (both diffusion and embedding algorithms), and INPP5D (embedding algorithm). Therefore, we speculated that FLT1 participate in similar disease processes. In fact, FLT1 was found to be the receptor of VEGFA, associating with amyloid plaque (<a href="https://pubmed.ncbi.nlm.nih.gov/31332262/" target="_blank">Mol Psychiatry, 26(3):888-896</a>).INPP5D has also been reported to be related with amyloid-β deposition in AD patients, just like FLT1 (<a href="https://pubmed.ncbi.nlm.nih.gov/33631273/" target="_blank">Neurobiol Dis, 153:105303</a>).</p>
+			
+		<h2 id="IGFBP-3">5	Graph for the linkages between IGFBP3 and known disease genes</h2>
+			<p align="center"><img align="center" width="800px" src="./tutorial-fig/figure-4.png"></p>
+			<p align="center" style="font-family: arial; font-size: 13px;">Figure 4. The linkages between IGFBP-3 and known disease genes.</p>
+			<p>In Figure 4A, we found the candidate disease gene IGFBP-3 is linked to known disease genes IGF-1 and TF (based on both diffusion and embedding algorithms). By the bioinformatics annotation page (Figure 4 B and C), we found all these three genes (IGFBP-3, IGF-1 and TF) share the same GO term of "phosphorylation". The most common primary characteristics of AD is that neurofibrillary tangles are largely composed of hyper-phosphorylated tau. And both IGF-1 and TF have been reported to be related with neurofibrillary tangles (<a href="https://pubmed.ncbi.nlm.nih.gov/34564432/" target="_blank">Metabolites, 11(9):616</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/26637371/" target="_blank">Mol Brain, 8(1):82</a>). Thus, we inferred IGFBP-3 may be related to tau phosphorylation. These linkages provided us crucial clues for further experiments. In fact, IGFBP-3 has been found to affect the tau phosphorylation by binding to IGF-1 (<a href="https://pubmed.ncbi.nlm.nih.gov/26637371/" target="_blank">Mol Brain, 8(1):82</a>).
+			
+		<h2 id="conclusion">6	Use DDK-Linker linkage results to infer the possible disease mechanism of AD</h2>
+			<p>Based on the DDK-Linker results and the related literatures, we can present the possible pathogenesis of AD in Figure 5, which can provide rich clues for subsequent experimental studies. </p>
+			<p align="center"><img align="center" width="800px" src="./tutorial-fig/figure-5.png"></p>
+			<p align="center" style="font-family: arial; font-size: 13px;">Figure 5. Use DDK-Linker to uncover the key disease signals in proteomics data for AD.</p>
+			
+			
+
+    </div>
+</div></body></html>

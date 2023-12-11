@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- saved from url=(0235)file:///D:/workspace/2-%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C/22-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/2021%E5%B9%B4%E5%BA%A6/12-%E6%96%87%E7%AB%A0%E7%BB%93%E6%9E%84%E6%A2%B3%E7%90%86/1-%E7%BD%91%E7%AB%99/1-help/GenePlexus%20_%20Help.html -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DDK-Linker| Documentation</title>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	
+
+	
+</head>
+
+   
+
+</head>
+    <body>
+
+<style>
+    h3 { padding-top: 1em; }
+    h4 { padding-top: 0.75em;}
+    h5 { padding-top: 0.5em;}
+    body {font-family:'Source Sans Pro',sans-serif;
+		font-size: 15px; line-height:150%}
+	.a{color:#4384BD;
+	font-weight: bold;}
+	.asite {text-decoration: underline;}
+	.descSite{
+        text-align: center;
+        font-weight: bolder;
+        line-height: 10px;
+        color: #428bca;
+    }
+	.navbar-default {
+        box-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        background-color: #3C8DBC;
+        border-color: #ffffff;
+    }
+	.navbar-default .navbar-nav > .open > a,
+	.navbar-default .navbar-nav > .open > a:hover,
+	.navbar-default .navbar-nav > .open > a:focus {
+       background-color: #eee;
+       color: #3C8DBC;
+    }
+	
+</style>
+
+
+<div class="container" style="width:1250px;">
+   <div class="row" id="top">
+	<div class="col-md-3">
+		<a href="http://ddklinker.ncpsb.org.cn/" target="_blank">
+        <img src="ddklogo.png" style="width:120%;height:80px;margin-top:5px">
+        </a>
+	</div>
+	<!-- <div class="col-md-1"></div> -->
+    <div class="col-md-8">
+		<h4 class="descSite"> A user-friendly website to identify and annotate <span style="color:#984807">Disease signals</span></h4>
+		<h4 class="descSite"> by linking high-throughput omics Datasets and disease Knowledge </h4>
+    </div>
+
+    </div>
+
+ <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <span class="navbar-brand"></span>
+          </div>
+          <ul class="nav navbar-nav shiny-tab-input shiny-bound-input" id="main_navbar" data-tabsetid="2427">
+            <li>
+              <a href="http://ddklinker.ncpsb.org.cn/#tab-2427-1" data-toggle="tab" data-bs-toggle="tab" data-value="Analysis" tabindex="-1" aria-selected="false" aria-expanded="false">Analysis</a>
+            </li>
+            <li class="active">
+              <a href="http://ddklinker.ncpsb.org.cn/#tab-2427-2" data-toggle="tab" data-bs-toggle="tab" data-value="Help" aria-expanded="true" tabindex="0" aria-selected="true">Documentation</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+	 <a class="asite" href="http://ddklinker.ncpsb.org.cn/" target="_blank" style="font-size: 16px;color: #4384BD;font-weight: bold;"> << Back to Homepage </a>
+
+        <div id="content-padding" class="ps-3 pe-4 pt-2">
+        <h1 id="help-page">DDK-Linker Documentation Page</h1>
+        <p>The documentation page provides various help, advice, and interpretation of the various inputs and outputs on the DDK-Linker webserver.</p>
+
+		<h2 id="overview">1 Overview of DDK-Linker</h2>
+
+		<div id="Significance"></div>
+		<h3> 1.1	The significance of DDG-Linker </h3>
+			<p><li>DDK-Linker focuses on user-targeted disease analysis. User can perform context-specific -omics data analysis for the designated disease.</li></p>
+			<p><li>DDK-Linker integrated a high confidence disease knowledge graph, which contains 2006 diseases and their associated genes.</li></p>
+			<p><li>Benefited from the establishment of disease knowledge graph and the integration of network-based methods, DDK-Linker can identify the most promising disease signal genes from high-throughput screening, such as gene expression microarray and quantitative proteomics.</li></p>
+			<p><li>For each candidate gene (disease signal), DDK-Linker provides supporting evidence and abundant bioinformatics annotation information.</li></p>
+			<p><li>DDK-Linker combined two popular network-based strategies (1 network diffusion algorithm and 11 network embedding algorithms) for explore candidate disease genes.</li></p>
+
+		<div id="disease signal"></div>
+		<h3> 1.2	What is disease signal? </h3>
+			<p>Disease signals refer to potential disease-related genes in high-throughput –omics dataset, or functional associations between disease signal genes and known disease genes, etc.</p>
+			<p>High-throughput -omics scanning approaches (such as genome-wide association studies and comparative proteomics) can generate quantitative genome-wide datasets under certain disease conditions. After statistical analyses (such as differential gene expression analysis), thousands/hundreds of genes of interest will be obtained. However, only some of these genes are crucial for us to understand the complex pathological processes. And these genes are defined as disease signal genes in the high-throughput datasets (<a href="https://pubmed.ncbi.nlm.nih.gov/35197084/"><i>Genome Biol</i> 2022, <b>23</b>: 61</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/31564248/"><i>Genome Med</i> 2019, <b>11</b>: 59</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/25805723/"><i>Bioinformatics</i> 2015, <b>31</b>: 2591</a>).</p>
+
+		<div id="GOIs"></div>
+		<h3> 1.3	What is GOI? </h3>
+			<p>Abbreviation for "Genes Of Interest". Genes of interest(GOIs)  were often obtained from ‘-omics’ raw data after differential expression analysis, gene co-expression analysis, etc.</p>
+			
+		
+		<div id="Motivation"></div>
+		<h3> 1.4	Motivation of DDK-Linker </h3>
+		    <p> High-throughput -omics scanning approaches (such as proteomics) can generate quantitative genome-wide datasets under certain disease conditions, providing deep insight into complex pathological processes. However, routine bioinformatics analysis often stops after statistical analysis (such as differential gene expression analysis), and simple bioinformatics annotation (such as Gene Ontology analysis). </p>
+			<p>For narrowing down the genes of interest (GOIs) from high-throughput datasets to the most promising disease-associated genes, laborious and time-consuming manual literature review is often inevitable. With unprecedented growing wealth of disease -omics datasets and biological knowledge, there is an increasing need for a user-centered and context-specific web application to alleviate this bottleneck.</p>
+			<p>Here, to address this challenge, we provided DDK-Linker to facilitate the exploration of disease signals in high-throughput screening. By combining the high-confidence disease knowledge graph and two popular protein network analysis strategies, DDK-Linker presents candidate disease genes and their linkages to disease knowledge, which is promising to become a routine bioinformatics tool for the disease -omics experiments (Figure 1A). </p>
+			<p>Firstly, web interfaces were designed to accept the user-designated disease name and the related GOIs. User can customize parameters, such as disease gene confidence and network analysis algorithms (Figure 1B).</p>
+			<p>Then, network diffusion and network embedding algorithms were implemented to establish the linkages between GOIs and disease genes knowledge (Figure 1C).</p>
+			<p>Finally, detailed information pages were developed to illustrate linkages between the candidate disease genes and known disease genes, and also to show their abundant bioinformatics annotation, such as shared GO/KEGG terms (Figure 1D, E). </p>
+			<p>To test the efficacy of DDK-Linker, we analyzed two datasets from GWAS and proteomic datasets for Alzheimer's disease. Some candidate genes (such as FLT1) were identified and validated by latest literatures (Figure 1F).</p>
+			
+			<p align="center"><img align="center" src="./help-figs/fig-0.png"></p>
+
+		<div id="Human diseases"></div>
+		<h3> 1.5	Human diseases in DDK-Linker</h3>
+		    <p>Currently DDK-linker can analyze 2006 diseases.All these 2006 diseases included in DDK-Linker have at least one known disease-associated gene with DisGeNET score greater than 0.3.</p>
+			<table border="1" cellspacing="0" align="center">
+			<caption>Table1 Statistics of human diseases in DDK-Linker</caption>
+				<tbody><tr>
+					<th>Disease categories</th>
+					<th>Disease number</th>
+				</tr>
+				<tr>
+					<td>Nervous system disease</td>
+					<td>610</td>
+				</tr>
+				<tr>
+					<td>Cancer</td>
+					<td>243</td>
+				</tr>
+				<tr>
+					<td>Musculoskeletal system disease</td>
+					<td>170</td>
+				</tr>
+				<tr>
+					<td>Cardiovascular system disease</td>
+					<td>141</td>
+				</tr>				
+				<tr>
+					<td>Inherited metabolic disorder</td>
+					<td>100</td>
+				</tr>				
+				<tr>
+					<td>Endocrine system disease</td>
+					<td>70</td>
+				</tr>				
+				<tr>
+					<td>Gastrointestinal system disease</td>
+					<td>70</td>
+				</tr>				
+				<tr>
+					<td>Integumentary system disease</td>
+					<td>68</td>
+				</tr>				
+				<tr>
+					<td>Immune system disease</td>
+					<td>49</td>
+				</tr>
+				<tr>
+					<td>Hematopoietic system disease</td>
+					<td>48</td>
+				</tr>
+				<tr>
+					<td>Urinary system disease</td>
+					<td>46</td>
+				</tr>
+				<tr>
+					<td>Benign neoplasm</td>
+					<td>39</td>
+				</tr>				
+				<tr>
+					<td>Respiratory system disease</td>
+					<td>32</td>
+				</tr>				
+				<tr>
+					<td>Cognitive disorder</td>
+					<td>28</td>
+				</tr>				
+				<tr>
+					<td>Bardet-Biedl syndrome</td>
+					<td>20</td>
+				</tr>				
+				<tr>
+					<td>Developmental disorder of mental health</td>
+					<td>19</td>
+				</tr>				
+				<tr>
+					<td>Usher syndrome</td>
+					<td>18</td>
+				</tr>				
+				<tr>
+					<td>RASopathy</td>
+					<td>16</td>
+				</tr>				
+				<tr>
+					<td>Reproductive system disease</td>
+					<td>16</td>
+				</tr>				
+				<tr>
+					<td>Other disesaes</td>
+					<td>203</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>2006</td>
+				</tr>				
+			</tbody></table>
+        <div id="Network-based approaches"></div>
+        <h3 id="Network-based approaches">1.6	Network-based approaches</h3>
+            <p>DDK-Linker provides two categories of network-based approaches to identify disease-associated signals, including network diffusion strategy and network embedding strategy.</p>
+		<h4 id="Network diffusion strategy">1.6.1	Network diffusion strategy</h4>
+			<p>The diffusion methods employ random walk techniques for influence propagation in protein-protein interaction networks. In the current version of DDK-linker, <a href="https://academic.oup.com/bioinformatics/article/35/3/497/5055408"> RWR (Random walk with restart) algorithm </a> was used, which is the state-of-the-art guilt-by-association approach. It explores the network vicinity of gene/protein seeds to study their functions, based on the premise that nodes related to similar functions tend to lie close to each other in the networks. Starting from known disease genes (seeds), they diffuse along the biological network through random walks. It is defined as follows:</p>
+			<p align="center">p<sup>t+1</sup> = (1 − r)Wp<sup>t</sup> + rp<sup>0</sup> ,</p>
+			<p>where W is the column-wise normalized adjacency matrix of the network. In particular, p<sup>t</sup> is the probability vector of being at node i at time step t in its i-th entry and p<sup>0</sup> is the initial probability vector holding the probabilities of being at known disease nodes (seeds). A proximity measure from every network node to the seed(s) can be calculated by RWR, then according to the proximity measure value, we can obtain a rank of candidate genes for the query disease. For a candidate gene with a rank n, the connectivity score was calculated as follows:</p>
+			<p align="center">Connectivity score=1- n/N,</p>
+			<p>where n represents the rank of candidate gene, N represents the number of all candidate gene in network. A higher connectivity score means that the corresponding gene is more likely to relate to the disease. </p>
+		<h4 id="Network embedding strategy">1.6.2 Network embedding strategy</h4>
+			<p>This strategy identifies the potential disease-associated genes based on their embedding vectors’ similarity (cosine value) with those of known disease genes in protein-protein interaction network. </p>
+			<p>In the current version of DDK-Linker, three categories of embedding algorithms are used to create embedding vectors.</p>
+				<ul>
+				<li>Matrix factorization-based methods: <a href="https://ieeexplore.ieee.org/document/6789755">Laplacian</a>, SVD , <a href="https://dl.acm.org/doi/10.1145/2806416.2806512">GraRep</a> , <a href="https://dl.acm.org/doi/10.1145/2939672.2939751">HOPE</a>, <a href="https://dl.acm.org/doi/abs/10.1145/2488388.2488393">GF</a>; </li>
+				<li>Random walk-based methods: <a href="https://dl.acm.org/doi/10.1145/2623330.2623732">DeepWalk</a>, <a href="https://dl.acm.org/doi/10.1145/2939672.2939754">node2vec</a>; </li>
+				<li>Neural network-based methods: <a href="https://arxiv.org/abs/1503.03578">LINE</a>, <a href="https://dl.acm.org/doi/10.1145/2939672.2939753">SDNE</a>, <a href="https://arxiv.org/abs/1611.07308">GAE</a>. </li>
+				</ul>
+			<p>After creating low dimensional embedding vectors of genes, we calculate the similarities between vectors of known disease-associated genes and vectors of candidate genes. Mathematically, given the known disease-associated gene V<sub>k</sub> and the candidate gene node V<sub>g</sub>, we can measure the similarity by calculating the cosine of the angle between V<sub>k</sub> and V<sub>g</sub></p>
+			<p align="center">Similarity(V<sub>g</sub>, V<sub>k</sub>)= cos(V<sub>g</sub>, V<sub>k</sub>)</p>
+			<p>By calculating and sorting the similarities, we can obtain a rank of candidate genes for the query disease. For a candidate gene with a rank n, the similarity score was calculated as follows:</p>
+			<p align="center">Similarity score=1- n/N</p>
+			<p>where n represents the rank of candidate gene, N represents the number of all candidate genes in network.</p>
+			
+		<h4 id="Combination strategies">1.6.3 Combination of two network-based strategies</h4>
+			<p>DDK-Liner combined the RWH (network diffusion strategy) and network embedding strategies based on a simple rule, that is, we take the minimum value of the ranks obtained by network diffusion strategy and network embedding strategy as the rank of candidate genes, which is proved to be effective by our experiment</p>
+		<h4 id="Confidence score">1.6.4 Confidence score for the linkage</h4>
+			<p>We also provide a standard confidence score which indicates the strength of the association between the candidate gene and the disease. The confidence score was calculated from the candidate gene ranking generated by the linkage strategy selected by users. It ranges from 0 to 1. A higher confidence score means that the candidate gene is more likely to relate to the disease.</p>
+		
+		<h3 id="disease-gene association">1.7	Data source of disease-gene association</h3>
+<p>We obtained the disease-gene association from <a href="https://www.disgenet.org/home/"> DisGeNET</a>.DisGeNET(<a href="https://academic.oup.com/nar/article/48/D1/D845/5611674">Nucleic Acids Res, 48:D845</a>) is a high-confidence database of gene-disease associations. DisGeNET defines a gene-disease association score(DisGeNET score, range from 0 to 1) to evaluate the confidence of gene-disease associations.</p>
+			<p>In DDK-Linker, user can customize a cutoff value to select genes as known disease-associated genes which are used in the linkage strategies. See <a href="file:///D:/workspace/2-%E9%A1%B9%E7%9B%AE%E5%B7%A5%E4%BD%9C/22-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/2021%E5%B9%B4%E5%BA%A6/12-%E6%96%87%E7%AB%A0%E7%BB%93%E6%9E%84%E6%A2%B3%E7%90%86/1-%E7%BD%91%E7%AB%99/1-help/GenePlexus%20_%20Help.html#Set%20a%20cut%20off"> 2.4 Set a cut off value of disease gene confidence score</a></p>
+			
+			<h3 id="protein-protein interaction network">1.8	Data source of protein-protein interaction network</h3>
+			<p>We select protein-protein interaction network HPRD as background network in DDK-Linker. HPRD (8827 genes, 34405 edges). This network is a manually curated network and widely used by the scientific community. The edges in the network are only from verified experimental results.</p>
+
+		<h2 id="input">2 Input</h2>
+		<h3 id="Disease name">2.1	Disease name</h3>
+			<p>Users can designate one disease by providing its name in <a href="https://disease-ontology.org/">Disease Ontology</a>.An embedded plug-in can help users select the disease name by approximate string matching. Users could input a disease name directly, and DDK-Linker can help users match the standard disease name by approximate string matching.</p>
+			<p align="center"><img align="center" src="./help-figs/fig-1.png"></p>
+			
+			
+		<h3 id="Select gene">2.2	Select gene identifier type</h3>
+			<p>DDK-Linker supports the submission of two types of gene identifier types: NCBI Entrez Gene ID and Gene Symbol, which were widely used by the community.</p>
+		<h3 id="Input gene list">2.3	Input gene list</h3>
+			<p>Genes of interest were often obtained from ‘-omics’ raw data after differentially expression analysis, gene co-expression analysis, etc.[<a href="https://pubmed.ncbi.nlm.nih.gov/17204154/"> Genome Biol. 2007;8(1):R3 </a>].
+				Users could directly paste the gene list (each gene in each line, or genes separated by comma). If you want to submit more than 2000 genes each time, please kindly e-mail us by lidong.bprc@foxmail.com before submission.</p>
+		<h3 id="Set a cut off">2.4	Set a cut off value of disease gene confidence score(DisGeNET)</h3>
+			<p>To meet different requirements of users, we provided the interface to permit user select different  confidence cutoff value of disease genes. <b>As <a href="https://reactome.org/overlays/disgenet"> Reactome</a> defined, we provide three options:</b></p>
+				<ul>
+			<!--	<li>Low(no filter): All disease-associated genes provided by DisGeNET will be used in the subsequent linkage algorithm.</li>-->
+				<li>Medium(&gt;0.3): Genes with score greater than 0.3 will be defined as known diseases-associated genes, and be used in the subsequent linkage algorithm.</li>
+				<li>High(&gt;0.6): Genes with score greater than 0.6 will be defined as known diseases-associated genes, and be used in the subsequent linkage algorithm.</li>
+				</ul>
+				
+		<h3 id="Select linkage strategy">2.5	Select linkage strategy</h3>
+			<p>Select an approach to link known disease gene. See <a href="#Network-based approaches">Network-based approaches</a></p>
+		<h3 id="Example datasets">2.6	Example datasets</h3>
+			<p>Two example datasets are provided in the current version of DDK-Linker.</p>
+			<p>Datasets of "Example 1" is the genes list(patients with AD vs healthy controls) from genome(GWAS) experiment(<a href="https://www.nature.com/articles/s41588-021-00921-z"> Nat Genet.53(12):1722</a>).
+			</p><p>Datasets of "Example 2" load different expression genes list (patients with AD vs healthy controls) from proteomic experiment(<a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12369"> Alzheimers Dement.88-102</a>). 
+			</p><p align="center"><img align="center" src="./help-figs/fig-2.png"></p>
+			<p>Click the "Explore" button on the home page to generate the result page.</p>
+
+		<h2 id="output">3 Output</h2>
+			<p>After submitting, DDK-Linker performs the linkage analysis to discover disease-associated signals in submitted genes, presents the list of candidate disease-associated genes in submitted genes(left table) and illustrates their linkages with known disease genes (network view, right panel).</p>
+			<p>By clicking each node of network, users can view annotations of candidate gene and the corresponding linkages.</p>
+			<p>In DDK-Linker, <b>disease-associated signals</b> refer to potential disease-associated genes in the gene list from high-throughput screens, or functional associations between the gene list and known disease genes.</p>
+
+		<h3 id="Candidate disease">3.1	 Candidate disease-associated genes in submitted genes</h3>
+			<p>Here we present candidate disease-associated genes identified by DDK-Linker from submitted genes in left table. After clicking on an individual gene in left table, interactive network visualization will be displayed in the right panel. This network view will demonstrate the linkages between known disease genes (green nodes) and the candidate gene(red node).</p>
+			<p align="center"><img align="center" src="./help-figs/fig-3.png"></p>
+			<p id="Confidence Score"><b>Confidence Score:</b> The confidence score indicates the strength of the association between the gene and the disease. It ranges from 0 to 1.</p>
+			<p><b>Known disease-associated genes:</b>Genes with a DisGeNET confidence score greater than the cutoff value (set in the parameter setting section).</p> 
+			<p><b>#High:</b> The number of disease genes with correlation scores greater than 0.8. Correlation scores greater than 0.8 indicate corresponding genes are very highly related to user designated disease.</p>
+			<p><b>#Middle:</b> The number of disease genes with confidence scores between 0.3 and 0.8. Correlation scores between 0.3 and 0.8 indicate genes which can be considered moderately related to diseases.</p>
+			<p><b>#Low:</b> The number of disease genes with confidence scores less than 0.3. Correlation scores less than 0.3 indicate genes which have a low correlation.</p>
+			
+			<p>Click on the central red node (candidate gene) to view a pop-up window for detailed information of the candidate gene. </p>
+			<p align="center"><img align="center" src="./help-figs/fig-4.png"></p>
+			<p><b>Connectivity score:</b> Connectivity score between a candidate gene and known disease-associated genes is caculated by RWH algorithm(<a href="https://academic.oup.com/bioinformatics/article/35/3/497/5055408"> Bioinformatics.35(3):4970</a>). A higher connectivity score means that the corresponding gene is more likely to relate to the disease. 
+			</p><p><b>Similarty score:</b>Similarty score reflects the similarity between a candidate gene and known disease-associated genes. See Network-based approaches. </p>
+			<p>Click on the green node (known disease gene) to view a pop-up window for detailed information of the linkage between candidate gene and known disease genes.</p> 
+			<p align="center"><img align="center" src="./help-figs/fig-5.png"></p>
+			<p><b>Linkage bioinformatics annotation:</b> Here five types of bioinformatic annotation between the candidate gene and the known disease-associated gene are presented.</p>
+		<h3 id="Known disease-associated">3.2 Known disease-associated genes in submitted genes</h3>
+		    <p>Here we present known disease-associated genes in submitted genes</p>
+			<p align="center"><img align="center" src="./help-figs/fig-6.png"></p>
+			<p><b>known disease-associated genes:</b> Genes with DisGeNET score greater than cutoff value set in the parameter setting section. </p>
+
+		<!-- <h3 id="keyword"> 4	Keywords in DDK-Linker </h3>
+		    <p><b>GOIs:</b>  abbreviation for "Genes Of Interest". Genes of interest(GOIs)  were often obtained from ‘-omics’ raw data after differential expression analysis, gene co-expression analysis, etc.</p>
+			 -->
+			
+			
+			
+			
+			
+			
+			
+			
+		
+    </div>
+</div></body></html>

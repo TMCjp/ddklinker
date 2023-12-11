@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UbiBrowser_v2| Statistic</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <css href="__PUBLIC__/css/bootstrap.min.css"/>
+    <script src="__PUBLIC__/js/jquery-1.11.1.min.js"></script>
+    <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+    <script src="echarts.min.js"></script>
+    <script src="world.js"></script>
+    <script src="macarons.js"></script>
+    <script src="__PUBLIC__/lib/vue.min.js"></script>
+    <style>
+        .itemParentContainer{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .itemContainer{
+            width:25%;
+            text-align: center;
+        }
+        .statisticText{
+            font-size: 14px;
+        }
+        .statisticCount{
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+	<body>
+		<div class="container" style="width:960px;">
+			<include file="Public:header"/>
+            <div class="row" id="statisticContainer">
+                <h1 style="text-align: center;">Statistics of UbiBrowser 2.0</h1>
+                <hr>
+                <h3>1. Database Summary </h3>
+                <template v-for="(itemArr, index) in showData">
+                    <div class="col-md-12 itemParentContainer" :key="index">
+                        <template  v-for="(item, itemIndex) in itemArr">
+                            <div class="itemContainer" :key="`${index}_${itemIndex}`">
+                                <p :style="item.style" class="statisticCount">{{item.count}}</p>
+                                <p class="statisticText">{{item.text}}</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+			<div class="row">
+                <h3>2. Website Visit <span style="font-size: 21px; color:#3b76b2">(June 2020~)</span></h3>
+                <div class="col-md-8" id="worldMap"></div>
+                <div class="col-md-4">
+                    <table class="table"></table>
+                </div>
+            </div>
+            <div class="row">
+                <h3>3. Species</h3>
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#esi" role="tab" data-toggle="tab">E3-substrate interaction</a></li>
+                        <li role="presentation"><a href="#dsi" role="tab" data-toggle="tab">DUB-substrate interaction</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="esi" style="border:5px solid #428bca">
+                        <h4 style="text-align: center; margin-top: 15px;">Number of E3-Substrate Interations(ESIs)</h4>
+                        <div id="pieChart1" style="height: 600px; width: 885px"></div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="dsi" style="border:5px solid #428bca">
+                        <h4 style="text-align: center; margin-top: 15px;">Number of Deubiquitinase-Substrate Interations(DSIs)</h4>
+                        <div id="pieChart2" style="height: 600px; width: 885px"></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
+<style>
+    #worldMap{
+        height: 400px;
+    }
+</style>
+<script>var baseUrl = "__APP__";</script>
+<script>
+    $("#statisticNav").addClass("active");
+    const echartsMapCountryArr = ["Somalia", "Liechtenstein", "Morocco", "W. Sahara", "Serbia", "Afghanistan", "Angola", "Albania", "Aland", "Andorra", "United Arab Emirates", "Argentina", "Armenia", "American Samoa", "Fr. S. Antarctic Lands", "Antigua and Barbuda.", "Australia", "Austria", "Azerbaijan", "Burundi", "Belgium", "Benin", "Burkina Faso", "Bangladesh", "Bulgaria", "Bahrain", "Bahamas", "Bosnia and Herzegovina.", "Belarus", "Belize", "Bermuda", "Bolivia", "Brazil", "Barbados", "Brunei", "Bhutan", "Botswana", "Central African Republic.", "Canada", "Switzerland", "Chile", "China", "Cote d'Ivoire", "Cameroon", "Democratic Republic of the Congo", "Congo", "Colombia", "Comoros", "Cape Verde", "Costa Rica", "Cuba", "CuraÃ§ao", "Cayman Islands.", "N. Cyprus", "Cyprus", "Czech Republic.", "Germany", "Djibouti", "Dominica", "Denmark", "Dominican Republic.", "Algeria", "Ecuador", "Egypt", "Eritrea", "Spain", "Estonia", "Ethiopia", "Finland", "Fiji", "Falkland Is.", "France", "Faeroe Is.", "Micronesia", "Gabon", "United Kingdom", "Georgia", "Ghana", "Guinea", "Gambia", "Guinea-Bissau", "Equatorial Guinea", "Greece", "Grenada", "Greenland", "Guatemala", "Guam", "British Guiana ", "Heard I. and McDonald Is.", "Honduras", "Croatia", "Haiti", "Hungary", "Indonesia", "Isle of Man", "India", "Br. Indian Ocean Ter.", "Ireland", "Iran", "Iraq", "Iceland", "Israel", "Italy", "Jamaica", "Jersey", "Jordan", "Japan", "Siachen Glacier", "Kazakhstan", "Kenya", "Kyrgyzstan", "Cambodia", "Kiribati", "Korea", "Kuwait", "Laos", "Lebanon", "Liberia", "Libya", "Saint Lucia", "Sri Lanka", "Lesotho", "Lithuania", "Luxembourg", "Latvia", "Moldova", "Madagascar", "Mexico", "The former Yugoslav Republic of Macedonia", "Mali", "Malta", "Myanmar", "Montenegro", "Mongolia", "N. Mariana Is.", "Mozambique", "Mauritania", "Montserrat", "Mauritius", "Malawi", "Malaysia", "Namibia", "New Caledonia", "Niger", "Nigeria", "Nicaragua", "Niue", "Netherlands", "Norway", "Nepal", "New Zealand", "Oman", "Pakistan", "Panama", "Peru", "Philippines", "Palau", "Papua New Guinea", "Poland", "Puerto Rico", "North Korea", "Portugal", "Paraguay", "State of Palestine", "French Polynesia", "Qatar", "Romania", "Russia", "Rwanda", "Saudi Arabia", "Sudan", "S. Sudan", "Senegal", "Singapore", "S. Geo. and S. Sandw. Is.", "Saint Helena", "Solomon Islands.", "Sierra Leone", "El Salvador", "St. Pierre and Miquelon", "Sao Tome and Principe", "Suriname", "Czechoslovakia", "Slovenia", "Sweden", "Swaziland", "Seychelles", "Syria", "Turks and Caicos Islands.", "Chad", "Togo", "Thailand", "Tajikistan", "Turkmenistan", "Timor-Leste", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Tanzania", "Uganda", "Ukraine", "Uruguay", "USA", "Uzbekistan", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands", "Viet Nam", "Vanuatu", "Samoa", "Yemen", "South Africa", "Zambia", "Zimbabwe"];
+    const dbMapName = {
+        "United States": "USA", //美国
+        "China": "China", //中国
+        "Japan": "Japan", //日本
+        "Germany": "Japan", //德国
+        "India": "India", //印度
+        "France": "France", //法国
+        "United Kingdom": "United Kingdom", //英国
+        "Italy": "Italy", //意大利
+        "Brazil": "Brazil", //巴西
+        "Canada": "Canada", //加拿大
+        "Russia": "Russia", //俄罗斯
+        "South Korea": "Korea", //韩国
+        "Spain": "Spain", //西班牙
+        "Australia": "Australia", //澳大利亚
+        "Mexico": "Mexico", //墨西哥
+        "Indonesia": "Indonesia", //印度尼西亚
+        "Netherlands": "Netherlands", //荷兰
+        "Turkey": "Turkey", //土耳其
+        "Saudi Arabia": "Saudi Arabia", //沙特阿拉伯
+        "Switzerland": "Switzerland", //瑞士
+        "Poland": "Poland", //波兰
+        "Thailand": "Thailand", //泰国
+        "Sweden": "Sweden", //瑞典
+        "Belgium": "Belgium", //比利时
+        "Iran": "Iran", //伊朗
+        "Austria": "Austria", //奥地利
+        "Argentina": "Argentina", //阿根廷
+        "Norway": "Norway", //挪威
+        "United Arab Emirates": "United Arab Emirates", //阿联酋
+        "Israel": "Israel", //以色列
+        "Ireland": "Ireland", //爱尔兰
+        "Philippines": "Philippines", //菲律宾
+        "Malaysia": "Malaysia", //马来西亚
+        "South Africa": "South Africa", //南非
+        "Singapore": "Singapore", //新加坡
+        "Denmark": "Denmark", //丹麦
+        "Egypt": "Egypt", //埃及
+        "Bangladesh": "Bangladesh", //孟加拉国
+        "Colombia": "Colombia", //哥伦比亚
+        "Chile": "Chile", //智利
+        "Vietnam": "Viet Nam", //越南
+        "Finland": "Finland", //芬兰
+        "Romania": "Romania", //罗马尼亚
+        "Czechia": "Czech Republic.", //捷克
+        "Pakistan": "Pakistan", //巴基斯坦
+        "Portugal": "Portugal", //葡萄牙
+        "Hong Kong": "China", //香港
+        "Taiwan": "China", //台湾
+        "Macao": "China" //澳门
+    };
+    const visitData = {$mapData};
+    echarts.init(document.getElementById('worldMap'), "macarons");
+    var mapChart;
+
+    //初始化地图
+    (function () {
+        mapChart = echarts.init(document.getElementById('worldMap'), "macarons");
+        var mapOption = {
+            //backgroundColor:"#64b7ed",
+            tooltip: {
+                trigger: 'item',
+                color: '#a4edba',
+                formatter: function (params) {
+                    //console.log(params);
+                    if (params.value) {
+                        var value = params.value;
+                        return params.name + ' : ' + value;
+                    } else {
+                        return params.name + ' : -';
+                    }
+                }
+            },
+            series: [{
+                name: 'distribution state',
+                type: 'map',
+                mapType: 'world',
+                roam: true,
+                itemStyle: {
+                    emphasis: {
+                        label: {
+                            show: false
+                        },
+                        areaColor: "#f68657"
+                    }, //version1
+                    normal: {
+                        borderWidth: 0.2,
+                        borderColor: '#888',
+                        /*color:"#0f0"*/
+                    },
+
+                },
+                data: [
+
+                ],
+            }]
+        };
+        mapChart.setOption(mapOption);
+    }());
+    function renderMap(mapData) {
+        var tempObj = {};
+        let max = 0;
+        let min = 1000000;
+        //流感之外的标尺： 0-500
+        mapData.forEach(function (item) {
+            var dbName = item["name"];
+            if(dbName){
+                var mapName = dbMapName[dbName] ? dbMapName[dbName] : dbName;
+                item["name"] = mapName;
+                tempObj[mapName] = item["value"];
+
+            }
+        });
+        if (max === min) {
+            min = 0;
+        }
+        mapData.sort(function (a, b) {
+            return b.value - a.value
+        });
+
+
+        let topData = getTopNData(mapData, 10);
+        let tableHtml = "";
+        topData.forEach(function (item) {
+            if(item.name){
+                tableHtml += `<tr><td style="font-weight: bold">${item.name}</td><td>${item.value}</td></tr>`
+            }
+        })
+        $(".table").html('<tr style="font-weight: bolder;font-size: 16px"><td>Countries/Regions</td><td>Times</td></tr>' + tableHtml)
+
+        //处理数据
+        var chartData = echartsMapCountryArr.map(function (item) {
+            return {
+                name: item,
+                value: tempObj.hasOwnProperty(item) ? tempObj[item] : null
+            }
+        })
+        mapChart.setOption({
+            series: [{
+                data: chartData
+            }],
+            visualMap: { min:0, max:5000 }
+        });
+    }
+    function getTopNData(dataArr, topN) {
+        return dataArr.filter(item => item.name !== "-").slice(0, topN);
+    }
+    //处理visitData
+    function dealVisitData(data){
+        //找到中国的索引
+        let mainIndex = getIndex(data, "China");
+        let currentValue = Number(data[mainIndex]["value"]);
+        ["Hong Kong", "Taiwan", "Macao"].forEach(function(item){
+            let itemIndex = getIndex(data, item);
+            if(itemIndex !== -1){
+                currentValue += Number(data[itemIndex]["value"])
+                data.splice(itemIndex, 1)
+            }
+        })
+        data[mainIndex]["value"] = currentValue
+    }
+    function getIndex(data, target){
+        return data.findIndex(function(item){
+            return item.name === target
+        })
+    }
+
+    dealVisitData(visitData);
+    renderMap(visitData);
+    new Vue({
+        el: "#statisticContainer",
+        data: {
+            showData:[[
+                {count: "1,884,676", text: "Predicted high confidence ESIs", style:"color:#5A78AD"},
+                {count: "4,068", text: "Known ESIs from literature", style:"color:#C55A11"},
+                {count: "8,341,262", text: "Potential E3 recognizing motifs", style:"color:#773BA5"},
+                {count: "1,757,778", text: "Potential ESI domain pairs", style:"color:#385723"},
+            ],[
+                {count: "303,214", text: "Predicted high confidence DSIs", style:"color:#203864"},
+                {count: "967", text: "Known DSIs from literature", style:"color:#843C0C"},
+                {count: "1,235,895", text: "Potential DUB recognizing motifs", style:"color:#240B55"},
+                {count: "443,642", text: "Potential DSI domain pairs", style:"color:#7F6000"},
+            ]]
+        }
+    })
+
+    let myChart1 = echarts.init(document.getElementById('pieChart1'));
+        let myChart2 = echarts.init(document.getElementById('pieChart2'));
+        let E3_predictedData =  [{"name":"A.carolinensis","value":43052,"itemStyle":{"color":"#c7f961"}},{"name":"A.melanoleuca","value":53292,"itemStyle":{"color":"#fefe66"}},{"name":"B.taurus","value":54549,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":9792,"itemStyle":{"color":"#ffcc33"}},{"name":"C.familiaris","value":51461,"itemStyle":{"color":"#fe9900"}},{"name":"C.intestinalis","value":12245,"itemStyle":{"color":"#ff6303"}},{"name":"C.jacchus","value":45489,"itemStyle":{"color":"#fe4d4d"}},{"name":"C.porcellus","value":44936,"itemStyle":{"color":"#ff3300"}},{"name":"C.savignyi","value":7393,"itemStyle":{"color":"#fe0002"}},{"name":"D.melanogaster","value":16379,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":35353,"itemStyle":{"color":"#e131a4"}},{"name":"E.caballus","value":49476,"itemStyle":{"color":"#993399"}},{"name":"F.catus","value":45325,"itemStyle":{"color":"#69329a"}},{"name":"G.aculeatus","value":33542,"itemStyle":{"color":"#340067"}},{"name":"G.gallus","value":30407,"itemStyle":{"color":"#0000fd"}},{"name":"G.gorilla","value":51615,"itemStyle":{"color":"#404cc4"}},{"name":"H.sapiens","value":64026,"itemStyle":{"color":"#353299"}},{"name":"L.africana","value":53958,"itemStyle":{"color":"#6d6dfe"}},{"name":"M.domestica","value":46323,"itemStyle":{"color":"#336799"}},{"name":"M.gallopavo","value":36416,"itemStyle":{"color":"#3398cc"}},{"name":"M.lucifugus","value":50859,"itemStyle":{"color":"#05b2b7"}},{"name":"M.mulatta","value":47491,"itemStyle":{"color":"#006636"}},{"name":"M.musculus","value":59842,"itemStyle":{"color":"#00c763"}},{"name":"N.leucogenys","value":48102,"itemStyle":{"color":"#349933"}},{"name":"O.anatinus","value":25779,"itemStyle":{"color":"#669934"}},{"name":"O.cuniculus","value":44200,"itemStyle":{"color":"#7acb00"}},{"name":"O.latipes","value":27461,"itemStyle":{"color":"#99cc67"}},{"name":"P.abelii","value":54086,"itemStyle":{"color":"#cdcc34"}},{"name":"P.marinus","value":1825,"itemStyle":{"color":"#fca72e"}},{"name":"P.troglodytes","value":54589,"itemStyle":{"color":"#50349a"}},{"name":"R.norvegicus","value":55317,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":3391,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":4165,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":40610,"itemStyle":{"color":"#fdaec9"}},{"name":"S.tridecemlineatus","value":47109,"itemStyle":{"color":"#f80000"}},{"name":"T.guttata","value":32831,"itemStyle":{"color":"#4b9f53"}},{"name":"T.nigroviridis","value":31587,"itemStyle":{"color":"#deb4b5"}},{"name":"T.rubripes","value":21695,"itemStyle":{"color":"#8080fe"}},{"name":"X.tropicalis","value":31109,"itemStyle":{"color":"#f00"}}];
+        let E3_knownData = [{"name":"A.thaliana","value":78,"itemStyle":{"color":"#000"}},{"name":"B.taurus","value":9,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":38,"itemStyle":{"color":"#ffcc33"}},{"name":"D.melanogaster","value":49,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":18,"itemStyle":{"color":"#e131a4"}},{"name":"E.nidulans","value":1,"itemStyle":{"color":"#8d8d8d"}},{"name":"G.gallus","value":4,"itemStyle":{"color":"#0000fd"}},{"name":"H.sapiens","value":2928,"itemStyle":{"color":"#353299"}},{"name":"M.musculus","value":565,"itemStyle":{"color":"#00c763"}},{"name":"O.cuniculus","value":1,"itemStyle":{"color":"#7acb00"}},{"name":"P.abelii","value":5,"itemStyle":{"color":"#cdcc34"}},{"name":"R.norvegicus","value":70,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":224,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":5,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":2,"itemStyle":{"color":"#fdaec9"}}]
+        let DUB_predictedData = [{"name":"A.carolinensis","value":18312,"itemStyle":{"color":"#c7f961"}},{"name":"A.melanoleuca","value":22123,"itemStyle":{"color":"#fefe66"}},{"name":"B.taurus","value":21636,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":4597,"itemStyle":{"color":"#ffcc33"}},{"name":"C.familiaris","value":21073,"itemStyle":{"color":"#fe9900"}},{"name":"C.intestinalis","value":4574,"itemStyle":{"color":"#ff6303"}},{"name":"C.jacchus","value":18247,"itemStyle":{"color":"#fe4d4d"}},{"name":"C.porcellus","value":19048,"itemStyle":{"color":"#ff3300"}},{"name":"C.savignyi","value":4471,"itemStyle":{"color":"#fe0002"}},{"name":"D.melanogaster","value":7640,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":13658,"itemStyle":{"color":"#e131a4"}},{"name":"E.caballus","value":19837,"itemStyle":{"color":"#993399"}},{"name":"F.catus","value":18370,"itemStyle":{"color":"#69329a"}},{"name":"G.aculeatus","value":15536,"itemStyle":{"color":"#340067"}},{"name":"G.gallus","value":12022,"itemStyle":{"color":"#0000fd"}},{"name":"G.gorilla","value":20431,"itemStyle":{"color":"#404cc4"}},{"name":"H.sapiens","value":27849,"itemStyle":{"color":"#353299"}},{"name":"L.africana","value":21612,"itemStyle":{"color":"#6d6dfe"}},{"name":"M.domestica","value":18332,"itemStyle":{"color":"#336799"}},{"name":"M.gallopavo","value":16434,"itemStyle":{"color":"#3398cc"}},{"name":"M.lucifugus","value":20019,"itemStyle":{"color":"#05b2b7"}},{"name":"M.mulatta","value":20054,"itemStyle":{"color":"#006636"}},{"name":"M.musculus","value":24304,"itemStyle":{"color":"#00c763"}},{"name":"N.leucogenys","value":18854,"itemStyle":{"color":"#349933"}},{"name":"O.anatinus","value":11918,"itemStyle":{"color":"#669934"}},{"name":"O.cuniculus","value":19796,"itemStyle":{"color":"#7acb00"}},{"name":"O.latipes","value":14386,"itemStyle":{"color":"#99cc67"}},{"name":"P.abelii","value":22241,"itemStyle":{"color":"#cdcc34"}},{"name":"P.marinus","value":650,"itemStyle":{"color":"#fca72e"}},{"name":"P.troglodytes","value":20163,"itemStyle":{"color":"#50349a"}},{"name":"R.norvegicus","value":22682,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":1047,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":1451,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":18192,"itemStyle":{"color":"#fdaec9"}},{"name":"S.tridecemlineatus","value":20036,"itemStyle":{"color":"#f80000"}},{"name":"T.guttata","value":15845,"itemStyle":{"color":"#4b9f53"}},{"name":"T.nigroviridis","value":14827,"itemStyle":{"color":"#deb4b5"}},{"name":"T.rubripes","value":10780,"itemStyle":{"color":"#8080fe"}},{"name":"X.tropicalis","value":11069,"itemStyle":{"color":"#f00"}}]
+        let DUB_knownData = [{"name":"A.thaliana","value":2,"itemStyle":{"color":"#000"}},{"name":"C.elegans","value":4,"itemStyle":{"color":"#ffcc33"}},{"name":"D.melanogaster","value":6,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":3,"itemStyle":{"color":"#e131a4"}},{"name":"H.sapiens","value":868,"itemStyle":{"color":"#353299"}},{"name":"M.musculus","value":79,"itemStyle":{"color":"#00c763"}},{"name":"R.norvegicus","value":4,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":1,"itemStyle":{"color":"#eee3af"}}]
+        let option = {
+            tooltip: {
+                formatter: '{b}:{c} ({d}%)',
+                trigger: "item"
+            },
+            legend: {
+                orient: 'vertical',
+                top: 40,
+                right: 10,
+                bottom: 40,
+                textStyle: {
+                    fontStyle: 'italic'
+                }
+            },
+            series: [
+                {
+                    name: 'Predicted',
+                    type: 'pie',
+                    radius: ['30%', '45%'],
+                    center: ['30%', '25%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{a}',
+                        show: true,
+                        position: 'center',
+                        fontSize: '30',
+                        fontWeight: 'bold',
+                        color: "#000"
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: []
+                },
+                {
+                    name: 'Known',
+                    type: 'pie',
+                    radius: ['30%', '45%'],
+                    center: ['30%', '75%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{a}',
+                        show: true,
+                        position: 'center',
+                        fontSize: '35',
+                        fontWeight: 'bold',
+                        color: "#000"
+                    },
+                    emphasis: {
+                        label: {
+                            show: false,
+                            fontSize: '40',
+                            fontWeight: 'bold'
+                        },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: []
+                }
+            ]
+        };
+        let option1 = option
+        option1.series[0].data = E3_predictedData
+        option1.series[1].data = E3_knownData
+        myChart1.setOption(option1);
+
+        let option2 = option
+        option2.series[0].data = DUB_predictedData
+        option2.series[1].data = DUB_knownData
+        myChart2.setOption(option2);
+</script>

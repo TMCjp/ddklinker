@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://ubibrowser.bio-it.cn/ubibrowser_v3/home/statistic -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>DDK-Linker| About</title>
+    
+    <script src="./echarts.min.js"></script> 
+
+
+    <style>
+        .itemParentContainer{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .itemContainer{
+            width:25%;
+            text-align: center;
+        }
+        .statisticText{
+            font-size: 16px;
+        }
+        .statisticCount{
+            font-size: 18px;
+            font-weight: bold;
+        }
+		body {font-family:'Source Sans Pro',sans-serif;
+		font-size: 15px; line-height:150%}
+		table {font-family:'Source Sans Pro',sans-serif;
+		font-size: 14px;}
+    </style>
+</head>
+	<body>
+		<div class="container" style="width:1200px;">
+
+
+
+<style>
+    .lbcenter{
+			width: 800px;
+			height: 600px;
+			/* position: absolute; */
+     	 	margin: auto;
+      		left: 0;
+      		right: 0;
+      		top: 0;
+      		bottom: 0;
+	}
+    .descSite{
+        text-align: center;
+        font-weight: bolder;
+        line-height: 28px;
+        color: #428bca;
+    }
+    .navUl {
+        margin-top: 5px;
+        background-color: #428bca;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .navUl li a {
+        font-size: 15px;
+        color: #fff;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navUl li.active {
+        text-decoration: none;
+        background-color: #eee;
+    }
+    .navUl li.active a{
+        color: #428bca;
+    }
+    .navUl li a:hover, .navUl li a:focus{
+        color: #428bca;
+    }
+	.colorRed{
+		color: #ff0000;
+	}
+	.colorPredicted{
+		color: #3300FF;
+	}
+	.colorKnown{
+		color: #CC0000;
+	}
+	.panelLi{
+		font-size: 24px;
+	}
+	.panelLi.active span{
+		color: yellow !important;
+	}
+	.viewTitleContainer{
+		margin-top: 20px;
+		margin-bottom: -10px;
+	}
+	.viewMainTitle{
+		font-size: 24px;
+	}
+	.viewSubTitle{
+		font-size: 22px;
+		display: block;
+		text-align: right;
+	}
+	.networkContainerTitle{
+		margin-top: 10px;
+		font-size: 24px;
+		font-weight: bold;
+	}
+	.editorTip{
+		font-size: 14px;
+		margin-top: -10px;
+	}
+</style>
+
+            <div id="statisticContainer" class="row">
+	 <!--<a class="asite" href="http://ddklinker.ncpsb.org.cn/" target="_blank" style="font-size: 15px;color: #4384BD;font-weight: bold;"> << Back to Homepage </a>-->
+
+			<h1 style="text-align: center;">Summary of DDK-Linker</h1> 
+			<hr> 
+			<h3>1. Statistics of DDK-Linker </h3> 
+			<div class="col-md-12 itemParentContainer">
+			<div class="itemContainer">
+			<p class="statisticCount" style="color: rgb(90, 120, 173);">2006</p> 
+			<p class="statisticText">Human diseases<span style="font-size:13px;">(associated with at least one high confidence gene*)</span></p></div>
+			<div class="itemContainer">
+			<p class="statisticCount" style="color: rgb(197, 90, 17);">8564</p>
+			<p class="statisticText">High confidence disease-associated genes*</p></div>
+			
+			<div class="itemContainer">
+			<p class="statisticCount" style="color: rgb(119, 59, 165);">34,405</p>
+			<p class="statisticText">Protein-protein interactions</p></div>
+			<!--
+			<div class="itemContainer"><p class="statisticCount" style="color: rgb(56, 87, 35);">1,757,778</p> 
+			<p class="statisticText">Potential ESI domain pairs</p></div>
+			-->
+			
+			</div>
+			
+			<div class="col-md-12 itemParentContainer">
+
+			<div class="itemContainer"><p class="statisticCount" style="color: rgb(36, 11, 85);">5 types</p> 
+			<p class="statisticText">Bioinformatics annotations of linkages</p></div>
+			<div class="itemContainer"><p class="statisticCount" style="color: rgb(132, 60, 12);">6</p> 
+			<p class="statisticText">Network-based linkage algorithms</p></div>
+			<!--<div class="itemContainer"><p class="statisticCount" style="color: rgb(56, 87, 35);">10</p> 
+			<p class="statisticText">Network embedding-based linkage algorithms</p></div>
+			
+			<div class="itemContainer"><p class="statisticCount" style="color: rgb(127, 96, 0);">443,642</p>
+			<p class="statisticText">Potential DSI domain pairs</p>
+			-->
+			</div></div>
+			<div class="row">
+			<p style="font-size:12px;">* High confidence disease-associated gene: one gene with DisGeNET score greater than 0.3. See <a href="#known_dis" target= _blank> 4. Known disease-associated genes in DDK-Linker</a>.</p>
+			</div>
+			
+            <div class="row">
+                <h3>2. Linkage algorithms</h3>
+                <div class="col-md-12">
+                    <div >
+					<p>DDK-Linker provides seven well-recognized network analysis linkage algorithms to identify disease-associated signals, including network diffusion algorithm and network embedding algorithms.</p>
+					<p>All seven algorithms in DDK-Linker were well-recognized, which have been cited for thousands of times.</p>
+<table border="1" cellspacing="0" align="center" style="width: 900px;">
+			<caption>Table 1 Citation of seven well-recognized algorithms</caption>
+				<tbody><tr>
+					<th style="background-color:#3c8dbc;color: white">Linkage algorithms</th>
+					<th style="background-color:#3c8dbc;color: white">Reference</th>
+					<th style="background-color:#3c8dbc;color: white">Google scholar Citation</th>
+				</tr>
+				<tr>
+					<td>RWR diffusion algorithm</td>
+					<td>Am J Hum Genet. 2008; 82:949.</td>
+					<td>1235</td>
+				</tr>
+				<tr>
+					<td>LINE embedding algorithm</td>
+					<td>Proceedings of the 24th International Conference on World Wide Web, Florence, Italy, pp. 1067–1077. ACM.</td>
+					<td>5115</td>
+				</tr>
+				<tr>
+					<td>Deepwalk embedding algorithm</td>
+					<td>Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, New York, NY, pp. 701–710. ACM.</td>
+					<td>8532</td>
+				</tr>
+				<tr>
+					<td>Node2vec embedding algorithm</td>
+					<td>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, pp. 855–864. ACM</td>
+					<td>8942</td>
+				</tr>
+				<!--<tr>
+					<td>SDNE embedding algorithm</td>
+					<td>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, pp. 1225–1234. ACM.</td>
+					<td>2551</td>
+				</tr>-->
+				<tr>
+					<td>HOPE embedding algorithm</td>
+					<td>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, San Francisco, CA, pp. 1105–1114. ACM.</td>
+					<td>1196</td>
+				</tr>
+				<tr>
+					<td>Laplacian embedding algorithm</td>
+					<td>Neural Comput. 2003; 15:1373.</td>
+					<td>8960</td>
+				</tr>
+			</tbody></table>
+			
+				<table border="1" cellspacing="0" align="center" style="width: 900px;">
+			<p> </p>
+			<caption>Table 2 Case studies of these algorithms employed to find the linkage between disease and gene products.</caption>
+				<tbody>
+        					<tr>
+                                        <td style="background-color:#3c8dbc;color: white" align="center" rowspan="2"><b>Linkage algorithms</b></td>
+                                        <td align="center" colspan="3" style="background-color:#3c8dbc;color: white"><b> Case study</b></td>
+
+                                </tr>
+				
+                               <tr>
+
+								
+				<td align="center" style="background-color:#3c8dbc;color: white"> <b> Linkage detail</b></td>
+                                        <td align="center" style="background-color:#3c8dbc;color: white"><b>Disease</b></td>
+                                        <td align="center" style="background-color:#3c8dbc;color: white"><b>Reference</b></td>
+		                </tr>
+                    
+				<tr>
+					<td>RWR diffusion algorithm</td>
+					<td>36 disease-related genes were identified and 21 of these 36 genes were supported by previous experiments.</td>
+					<td>proliferative diabetic retinopathy (PDR)</td>
+					<td>Biochim Biophys Acta Mol Basis Dis. 2018; 1864: 2369.</td>
+				</tr>
+				<tr>
+					<td>LINE embedding algorithm</td>
+					<td>LINE shows certain efficacy in the task of identifying multiple sclerosis-related genes.</td>
+					<td>multiple sclerosis</td>
+					<td>Front Genet. 2020; 11:328</td>
+				</tr>
+				<tr>
+					<td>Deepwalk embedding algorithm</td>
+					<td>This method shows excellent performance for 22 complex diseases, with AUROC ranging from 0.805 to 0.937 (five-fold cross-validation). </td>
+					<td>22 complex diseases</td>
+					<td>IEEE Access 2017; 5: 24032.</td>
+				</tr>
+				<tr>
+					<td>Node2vec embedding algorithm</td>
+					<td>6 of top 10 genes (linked to Parkinson's disease by this algorithm) can be verified by literature.</td>
+					<td>Parkinson's disease</td>
+					<td>Front Genet. 2019; 10:226</td>
+				</tr>
+				<!--<tr>
+					<td>SDNE embedding algorithm</td>
+					<td>Performance of the disease related miRNA prediction: 0.94(AUROC).</td>
+					<td>314 diseases from HMDD</td>
+					<td>BMC Bioinformatics. 2019; 20:468.</td>
+				</tr>-->
+				<tr>
+					<td>HOPE embedding algorithm</td>
+					<td>9 of top 15 lung cancer disease-related lncRNAs were confirmed by literature.</td>
+					<td>lung cancer</td>
+					<td>Mol Ther Nucleic Acids. 2020; 23:277.</td>
+				</tr>
+				<tr>
+					<td>Laplacian embedding algorithm</td>
+					<td>Performance of the disease related miRNA prediction: 0.925(AUROC).</td>
+					<td>314 diseases from HMDD</td>
+					<td>BMC Bioinformatics. 2019; 20:468.</td>
+				</tr>
+			</tbody></table>
+			<p></p>
+			<p>All the seven algorithms in DDK-Linker have been successfully utilized to discover associations between disease and gene products. However, there is still no web server applying these algorithms to analyze omics data for exploring the disease signals associated with known disease genes. This greatly affects the application of these algorithms in the current field of life omics. DDK-Linker is supposed to greatly accelerate the speed of disease -omics data mining. And we hope DDK-Linker can become a routine bioinformatics pipeline, and gain wide usage.</p>
+			
+<!--
+                        <div id="pieChart2" style="height: 600px; width: 885px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1673601975726"><div style="position: relative; overflow: hidden; width: 885px; height: 600px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1327" height="900" style="position: absolute; left: 0px; top: 0px; width: 885px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+                    -->
+					</div>
+            </div>
+            <div id="dis_info" class="row">
+                <h3>3. Human diseases in DDK-Linker</h3>
+                <div class="col-md-12">
+
+
+                    <div >
+                        <p>Currently DDK-linker can analyze 2006 diseases( <a href="http://ddklinker.ncpsb.org.cn/ddklinker/Human.diseases.in.DDK-Linker.xlsx" download="Human.diseases.in.DDK-Linker.xlsx"><img height="15" width="15" src="dlicon.png"> Download</a>), covering 20 disease categories.  
+All these 2006 diseases included in DDK-Linker have at least one known disease-associated gene with DisGeNET score greater than 0.3.</p>
+<!--<p align="center"><img align="center" src="dis.class.png"></p>-->
+<div id="lb" class="lbcenter"></div>
+<!--
+
+			<table border="1" cellspacing="0" align="center">
+			<caption>Table 2 Statistics of human diseases in DDK-Linker</caption>
+				<tbody><tr>
+					<th style="background-color:#3c8dbc;color: white;">Disease categories</th>
+					<th style="background-color:#3c8dbc;color: white;">Disease number</th>
+				</tr>
+				<tr>
+					<td>Nervous system disease</td>
+					<td style="text-align:center">610</td>
+				</tr>
+				<tr>
+					<td>Cancer</td>
+					<td style="text-align:center">243</td>
+				</tr>
+				<tr>
+					<td>Musculoskeletal system disease</td>
+					<td style="text-align:center">170</td>
+				</tr>
+				<tr>
+					<td>Cardiovascular system disease</td>
+					<td style="text-align:center">141</td>
+				</tr>				
+				<tr>
+					<td>Inherited metabolic disorder</td>
+					<td style="text-align:center">100</td>
+				</tr>				
+				<tr>
+					<td>Endocrine system disease</td>
+					<td style="text-align:center">70</td>
+				</tr>				
+				<tr>
+					<td>Gastrointestinal system disease</td>
+					<td style="text-align:center">70</td>
+				</tr>				
+				<tr>
+					<td>Integumentary system disease</td>
+					<td style="text-align:center">68</td>
+				</tr>				
+				<tr>
+					<td>Immune system disease</td>
+					<td style="text-align:center">49</td>
+				</tr>
+				<tr>
+					<td>Hematopoietic system disease</td>
+					<td style="text-align:center">48</td>
+				</tr>
+				<tr>
+					<td>Urinary system disease</td>
+					<td style="text-align:center">46</td>
+				</tr>
+				<tr>
+					<td>Benign neoplasm</td>
+					<td style="text-align:center">39</td>
+				</tr>				
+				<tr>
+					<td>Respiratory system disease</td>
+					<td style="text-align:center">32</td>
+				</tr>				
+				<tr>
+					<td>Cognitive disorder</td>
+					<td style="text-align:center">28</td>
+				</tr>				
+				<tr>
+					<td>Bardet-Biedl syndrome</td>
+					<td style="text-align:center">20</td>
+				</tr>				
+				<tr>
+					<td>Developmental disorder of mental health</td>
+					<td style="text-align:center">19</td>
+				</tr>				
+				<tr>
+					<td>Usher syndrome</td>
+					<td style="text-align:center">18</td>
+				</tr>				
+				<tr>
+					<td>RASopathy</td>
+					<td style="text-align:center">16</td>
+				</tr>				
+				<tr>
+					<td>Reproductive system disease</td>
+					<td style="text-align:center">16</td>
+				</tr>				
+				<tr>
+					<td>Other disesaes</td>
+					<td style="text-align:center">203</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td style="text-align:center">2006</td>
+				</tr>				
+			</tbody></table>
+-->			
+<!--
+                        <div id="pieChart2" style="height: 600px; width: 885px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1673601975726"><div style="position: relative; overflow: hidden; width: 885px; height: 600px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1327" height="900" style="position: absolute; left: 0px; top: 0px; width: 885px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+                    -->
+					</div>
+            </div>
+			<div id="known_dis" class="row">
+                <h3>4. Known disease-associated genes in DDK-Linker</h3>
+                <div class="col-md-12">
+
+
+                    <div >
+				<p>We obtained the disease-gene association from <a href="https://www.disgenet.org/home/"> DisGeNET</a>.DisGeNET(<a href="https://academic.oup.com/nar/article/48/D1/D845/5611674">Nucleic Acids Res, 48:D845</a>) is a high-confidence database of gene-disease associations. DisGeNET defines a gene-disease association score(DisGeNET score, range from 0 to 1) to evaluate the confidence of gene-disease associations.</p>
+			<p>In DDK-Linker, user can customize a cutoff value to select genes as known disease-associated genes which are used in the linkage algorithms. See DDK-Linker Documentation page <a href="http://ddklinker.ncpsb.org.cn/ddklinker/help.html#Set%20a%20cut%20off" target= _blank> 2.4 Set a cut off value of disease gene confidence score</a>.</p>
+			
+				<ul>
+				<!--<li>#Low(no filter): The number of known disease-associated genes provided by DisGeNET.</li> -->
+				<li>#Medium(&gt;0.3): The number of known disease-associated genes with DisGeNET score greater than 0.3.</li>
+				<li>#High(&gt;0.6): The number of known disease-associated genes with DisGeNET score greater than 0.6.</li>
+				</ul>
+							<table border="1" cellspacing="0" align="center">
+			<caption>Table 3 Statistics of human diseases in DDK-Linker</caption>
+				<tbody><tr>
+					<th style="background-color:#3c8dbc;color: white;">Disease categories</th>
+					<th style="background-color:#3c8dbc;color: white;">#High(>=0.6)</th>
+					<th style="background-color:#3c8dbc;color: white;">#Medium(>0.3)</th>
+					<!--<th>#Low(no filter)</th>-->
+				</tr>
+				<tr>
+					<td>Nervous system disease</td>
+					<td style="text-align:center">502</td>
+					<td style="text-align:center">2163</td>
+					<!--<td>9199</td>-->
+				</tr>
+				<tr>
+					<td>Cancer</td>
+					<td style="text-align:center">248</td>
+					<td style="text-align:center">4563</td>
+					<!--<td>15672</td>-->
+				</tr>
+				<tr>
+					<td>Musculoskeletal system disease</td>
+					<td style="text-align:center">196</td>
+					<td style="text-align:center">1121</td>
+					<!--<td>6750</td>-->
+				</tr>
+				<tr>
+					<td>Cardiovascular system disease</td>
+					<td style="text-align:center">167</td>
+					<td style="text-align:center">1441</td>
+					<!--<td>7503</td>-->
+				</tr>				
+				<tr>
+					<td>Inherited metabolic disorder</td>
+					<td style="text-align:center">145</td>
+					<td style="text-align:center">943</td>
+					<!--<td>6157</td>-->
+				</tr>				
+				<tr>
+					<td>Endocrine system disease</td>
+					<td style="text-align:center">70</td>
+					<td style="text-align:center">300</td>
+					<!--<td>2966</td>-->
+				</tr>				
+				<tr>
+					<td>Gastrointestinal system disease</td>
+					<td style="text-align:center">50</td>
+					<td style="text-align:center">746</td>
+					<!--<td>5463</td>-->
+				</tr>				
+				<tr>
+					<td>Integumentary system disease</td>
+					<td style="text-align:center">67</td>
+					<td style="text-align:center">514</td>
+					<!--<td>3001</td>-->
+				</tr>				
+				<tr>
+					<td>Immune system disease</td>
+					<td style="text-align:center">84</td>
+					<td style="text-align:center">466</td>
+					<!--<td>4248</td>-->
+				</tr>
+				<tr>
+					<td>Hematopoietic system disease</td>
+					<td style="text-align:center">69</td>
+					<td style="text-align:center">330</td>
+					<!--<td>3066</td>-->
+				</tr>
+				<tr>
+					<td>Urinary system disease</td>
+					<td style="text-align:center">38</td>
+					<td style="text-align:center">520</td>
+					<!--<td>3593</td>-->
+				</tr>
+				<tr>
+					<td>Benign neoplasm</td>
+					<td style="text-align:center">29</td>
+					<td style="text-align:center">694</td>
+					<!--<td>4274</td>-->
+				</tr>				
+				<tr>
+					<td>Respiratory system disease</td>
+					<td style="text-align:center">37</td>
+					<td style="text-align:center">452</td>
+					<!--<td>4048</td>-->
+				</tr>				
+				<tr>
+					<td>Cognitive disorder</td>
+					<td style="text-align:center">72</td>
+					<td style="text-align:center">1579</td>
+					<!--<td>4903</td>-->
+				</tr>				
+				<tr>
+					<td>Bardet-Biedl syndrome</td>
+					<td style="text-align:center">21</td>
+					<td style="text-align:center">42</td>
+					<!--<td>79</td>-->
+				</tr>				
+				<tr>
+					<td>Developmental disorder of mental health</td>
+					<td style="text-align:center">63</td>
+					<td style="text-align:center">859</td>
+					<!--<td>3532</td>-->
+				</tr>				
+				<tr>
+					<td>Usher syndrome</td>
+					<td style="text-align:center">12</td>
+					<td style="text-align:center">27</td>
+					<!--<td>126</td>-->
+				</tr>				
+				<tr>
+					<td>RASopathy</td>
+					<td style="text-align:center">30</td>
+					<td style="text-align:center">106</td>
+					<!--<td>501</td>-->
+				</tr>				
+				<tr>
+					<td>Reproductive system disease</td>
+					<td style="text-align:center">13</td>
+					<td style="text-align:center">458</td>
+					<!--<td>2494</td>-->
+				</tr>				
+				<tr>
+					<td>Other disesae</td>
+					<td style="text-align:center">333</td>
+					<td style="text-align:center">2230</td>
+					<!--<td>9134</td>-->
+				</tr>
+				
+			</tbody></table>
+<!--
+                        <div id="pieChart2" style="height: 600px; width: 885px; -webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1673601975726"><div style="position: relative; overflow: hidden; width: 885px; height: 600px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1327" height="900" style="position: absolute; left: 0px; top: 0px; width: 885px; height: 600px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div></div></div>
+                    -->
+					</div>
+            </div>
+			<!--
+			<div class="row">
+                <h3>3. Performance of DDK-Linker in 26 diseases <span style="font-size: 21px; color:#3b76b2"></span></h3>
+				<p align="center"><img align="center" src="perfor.png"></p>
+            </div>
+			-->
+			<!--
+			<div class="row">
+                <h3>5. Website Visit <span style="font-size: 21px; color:#3b76b2">(June 2021~)</span></h3>
+				<p align="center"><img align="center" src="visit.png"></p>
+            -->
+				<!--
+                <div class="col-md-8" id="worldMap" _echarts_instance_="ec_1673601975724" style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative; background: transparent;"><div style="position: relative; overflow: hidden; width: 585px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="877" height="600" style="position: absolute; left: 0px; top: 0px; width: 585px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: none; border-style: solid; white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s; background-color: rgba(50, 50, 50, 0.5); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 5px; left: 335px; top: 274px;">Australia : 1018</div></div>
+                <div class="col-md-4">
+                    <table class="table"><tbody><tr style="font-weight: bolder;font-size: 16px"><td>Countries/Regions</td><td>Times</td></tr><tr><td style="font-weight: bold">China</td><td>74805</td></tr><tr><td style="font-weight: bold">USA</td><td>7694</td></tr><tr><td style="font-weight: bold">Japan</td><td>1511</td></tr><tr><td style="font-weight: bold">United Kingdom</td><td>1201</td></tr><tr><td style="font-weight: bold">Australia</td><td>1018</td></tr><tr><td style="font-weight: bold">Korea</td><td>989</td></tr><tr><td style="font-weight: bold">Japan</td><td>807</td></tr><tr><td style="font-weight: bold">Spain</td><td>557</td></tr><tr><td style="font-weight: bold">India</td><td>497</td></tr><tr><td style="font-weight: bold">Canada</td><td>357</td></tr></tbody></table>
+                </div>
+				-->
+            </div>			
+		</div>
+	</div>
+
+<style>
+    #worldMap{
+        height: 400px;
+    }
+</style>
+<script>var baseUrl = "/ubibrowser_v3";</script>
+<script>
+//扇形
+	(function () {
+		var chartDom = document.getElementById('lb');
+		var myChart = echarts.init(chartDom);
+		var option;
+		
+		option = {
+		  
+		 color:['#5FA040','#B18A2A','#4397CF','#7A9B28','#BE8443','#00A6A9','#B07BCF','#D07873','#38A358','#A29012','#718FD5','#BC76CA','#00A66F',
+		 '#D16FAE','#00A2B9','#8F9611','#C87E5B','#00A797','#B07BCF','#D07873'],
+		  series: [
+							//   扇形外面显示
+		    {
+		      name: 'Access From',
+		      type: 'pie',
+		       radius: ['40%', '70%'],
+								//扇形显示百分比
+								label : {
+									normal : {
+										show:true,
+										position:'outside',
+										//formatter: '{c}',
+										
+										//formatter: '{b}:{c}: ({d}%)',
+										textStyle : {
+											fontWeight : 'normal',
+											fontSize : 11,
+											 color: '#0B0C0D',
+										}
+									}
+								}, 
+		      data: [
+		        { value: 243, name: 'Cancer' },
+		        { value: 39, name: 'Benign neoplasm' },
+		        { value: 20, name: 'Bardet-Biedl syndrome' },
+		        { value: 18, name: 'Usher syndrome' },
+		        { value: 46, name: 'Urinary system disease' },
+								 { value: 32, name: 'Respiratory system disease' },
+								 { value: 16, name: 'Reproductive system disease' },
+								 { value: 16, name: 'RASopathy' },
+								 { value: 203, name: 'Other disesae' },
+								 { value: 610, name: 'Nervous system disease' },
+								 { value: 170, name: 'Musculoskeletal system disease' },
+								 { value: 68, name: 'Integumentary system disease' },
+								 { value: 100, name: 'lnherited metabolic disorder' },
+								 { value: 49, name: 'lmmune system disease' },
+								 { value: 48, name: 'Hematopoietic system disease' },
+								 { value: 70, name: 'Gastrointestinal system disease' },
+								 { value: 70, name: 'Endocrine system disease' },
+								
+								 { value: 19, name: 'Developmental disorder of mental health' },
+								 { value: 28, name: 'Cognitive disorder' }, 
+								 { value: 141, name: 'Cardiovascular system disease' }
+		      ],
+		      emphasis: {
+		        itemStyle: {
+		          shadowBlur: 10,
+		          shadowOffsetX: 0,
+		          shadowColor: 'rgba(0, 0, 0,0.5 )'
+		        }
+		      }
+		    },
+							 //扇形里面设置
+							 {
+												 type: 'pie',
+												  radius: ['40%', '70%'],
+												 data: [
+												   { value: 243, name: 'Cancer' },
+												   { value: 39, name: 'Benign neoplasm' },
+												   { value: 20, name: 'Bardet-Biedl syndrome' },
+												   { value: 18, name: 'Usher syndrome' },
+												   { value: 46, name: 'Urinary system disease' },
+							 						 { value: 32, name: 'Respiratory system disease' },
+							 						 { value: 16, name: 'Reproductive system disease' },
+							 						 { value: 16, name: 'RASopathy' },
+							 						 { value: 203, name: 'Other disesae' },
+							 						 { value: 610, name: 'Nervous system disease' },
+							 						 { value: 170, name: 'Musculoskeletal system disease' },
+							 						 { value: 68, name: 'Integumentary system disease' },
+							 						 { value: 100, name: 'lnherited metabolic disorder' },
+							 						 { value: 49, name: 'lmmune system disease' },
+							 						 { value: 48, name: 'Hematopoietic system disease' },
+							 						 { value: 70, name: 'Gastrointestinal system disease' },
+							 						 { value: 70, name: 'Endocrine system disease' },
+							 						
+							 						 { value: 19, name: 'Developmental disorder of mental health' },
+							 						 { value: 28, name: 'Cognitive disorder' }, 
+							 						 { value: 141, name: 'Cardiovascular system disease' }
+							 ],
+							 label : {
+							 	normal : {
+							 		show:true,
+							 		position:'inside',
+							 		formatter: '{c}',
+							 		
+							 		//formatter: '{b}:{c}: ({d}%)',
+							 		textStyle : {
+							 			fontWeight : 'normal',
+							 			fontSize : 8,
+							 			 color: '#fff',
+							 		}
+							 	}
+							 }, 
+							  }
+		  ]
+		};
+		
+		option && myChart.setOption(option);
+	}());
+
+
+
+
+
+
+    $("#statisticNav").addClass("active");
+    const echartsMapCountryArr = ["Somalia", "Liechtenstein", "Morocco", "W. Sahara", "Serbia", "Afghanistan", "Angola", "Albania", "Aland", "Andorra", "United Arab Emirates", "Argentina", "Armenia", "American Samoa", "Fr. S. Antarctic Lands", "Antigua and Barbuda.", "Australia", "Austria", "Azerbaijan", "Burundi", "Belgium", "Benin", "Burkina Faso", "Bangladesh", "Bulgaria", "Bahrain", "Bahamas", "Bosnia and Herzegovina.", "Belarus", "Belize", "Bermuda", "Bolivia", "Brazil", "Barbados", "Brunei", "Bhutan", "Botswana", "Central African Republic.", "Canada", "Switzerland", "Chile", "China", "Cote d'Ivoire", "Cameroon", "Democratic Republic of the Congo", "Congo", "Colombia", "Comoros", "Cape Verde", "Costa Rica", "Cuba", "CuraÃ§ao", "Cayman Islands.", "N. Cyprus", "Cyprus", "Czech Republic.", "Germany", "Djibouti", "Dominica", "Denmark", "Dominican Republic.", "Algeria", "Ecuador", "Egypt", "Eritrea", "Spain", "Estonia", "Ethiopia", "Finland", "Fiji", "Falkland Is.", "France", "Faeroe Is.", "Micronesia", "Gabon", "United Kingdom", "Georgia", "Ghana", "Guinea", "Gambia", "Guinea-Bissau", "Equatorial Guinea", "Greece", "Grenada", "Greenland", "Guatemala", "Guam", "British Guiana ", "Heard I. and McDonald Is.", "Honduras", "Croatia", "Haiti", "Hungary", "Indonesia", "Isle of Man", "India", "Br. Indian Ocean Ter.", "Ireland", "Iran", "Iraq", "Iceland", "Israel", "Italy", "Jamaica", "Jersey", "Jordan", "Japan", "Siachen Glacier", "Kazakhstan", "Kenya", "Kyrgyzstan", "Cambodia", "Kiribati", "Korea", "Kuwait", "Laos", "Lebanon", "Liberia", "Libya", "Saint Lucia", "Sri Lanka", "Lesotho", "Lithuania", "Luxembourg", "Latvia", "Moldova", "Madagascar", "Mexico", "The former Yugoslav Republic of Macedonia", "Mali", "Malta", "Myanmar", "Montenegro", "Mongolia", "N. Mariana Is.", "Mozambique", "Mauritania", "Montserrat", "Mauritius", "Malawi", "Malaysia", "Namibia", "New Caledonia", "Niger", "Nigeria", "Nicaragua", "Niue", "Netherlands", "Norway", "Nepal", "New Zealand", "Oman", "Pakistan", "Panama", "Peru", "Philippines", "Palau", "Papua New Guinea", "Poland", "Puerto Rico", "North Korea", "Portugal", "Paraguay", "State of Palestine", "French Polynesia", "Qatar", "Romania", "Russia", "Rwanda", "Saudi Arabia", "Sudan", "S. Sudan", "Senegal", "Singapore", "S. Geo. and S. Sandw. Is.", "Saint Helena", "Solomon Islands.", "Sierra Leone", "El Salvador", "St. Pierre and Miquelon", "Sao Tome and Principe", "Suriname", "Czechoslovakia", "Slovenia", "Sweden", "Swaziland", "Seychelles", "Syria", "Turks and Caicos Islands.", "Chad", "Togo", "Thailand", "Tajikistan", "Turkmenistan", "Timor-Leste", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Tanzania", "Uganda", "Ukraine", "Uruguay", "USA", "Uzbekistan", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands", "Viet Nam", "Vanuatu", "Samoa", "Yemen", "South Africa", "Zambia", "Zimbabwe"];
+    const dbMapName = {
+        "United States": "USA", //美国
+        "China": "China", //中国
+        "Japan": "Japan", //日本
+        "Germany": "Japan", //德国
+        "India": "India", //印度
+        "France": "France", //法国
+        "United Kingdom": "United Kingdom", //英国
+        "Italy": "Italy", //意大利
+        "Brazil": "Brazil", //巴西
+        "Canada": "Canada", //加拿大
+        "Russia": "Russia", //俄罗斯
+        "South Korea": "Korea", //韩国
+        "Spain": "Spain", //西班牙
+        "Australia": "Australia", //澳大利亚
+        "Mexico": "Mexico", //墨西哥
+        "Indonesia": "Indonesia", //印度尼西亚
+        "Netherlands": "Netherlands", //荷兰
+        "Turkey": "Turkey", //土耳其
+        "Saudi Arabia": "Saudi Arabia", //沙特阿拉伯
+        "Switzerland": "Switzerland", //瑞士
+        "Poland": "Poland", //波兰
+        "Thailand": "Thailand", //泰国
+        "Sweden": "Sweden", //瑞典
+        "Belgium": "Belgium", //比利时
+        "Iran": "Iran", //伊朗
+        "Austria": "Austria", //奥地利
+        "Argentina": "Argentina", //阿根廷
+        "Norway": "Norway", //挪威
+        "United Arab Emirates": "United Arab Emirates", //阿联酋
+        "Israel": "Israel", //以色列
+        "Ireland": "Ireland", //爱尔兰
+        "Philippines": "Philippines", //菲律宾
+        "Malaysia": "Malaysia", //马来西亚
+        "South Africa": "South Africa", //南非
+        "Singapore": "Singapore", //新加坡
+        "Denmark": "Denmark", //丹麦
+        "Egypt": "Egypt", //埃及
+        "Bangladesh": "Bangladesh", //孟加拉国
+        "Colombia": "Colombia", //哥伦比亚
+        "Chile": "Chile", //智利
+        "Vietnam": "Viet Nam", //越南
+        "Finland": "Finland", //芬兰
+        "Romania": "Romania", //罗马尼亚
+        "Czechia": "Czech Republic.", //捷克
+        "Pakistan": "Pakistan", //巴基斯坦
+        "Portugal": "Portugal", //葡萄牙
+        "Hong Kong": "China", //香港
+        "Taiwan": "China", //台湾
+        "Macao": "China" //澳门
+    };
+    const visitData = [{"name":"China","value":74309},{"name":"United States","value":7694},{"name":"United Kingdom","value":1201},{"name":"Germany","value":807},{"name":"South Korea","value":989},{"name":"Japan","value":1511},{"name":"India","value":497},{"name":"Singapore","value":351},{"name":"France","value":236},{"name":"Spain","value":557},{"name":"Canada","value":357},{"name":"Australia","value":1018},{"name":"Italy","value":159},{"name":"Switzerland","value":308},{"name":"Czechia","value":111},{"name":"Belgium","value":115},{"name":"Netherlands","value":110},{"name":"Poland","value":62},{"name":"Sweden","value":100},{"name":"Denmark","value":144},{"name":"Israel","value":60},{"name":"Austria","value":44},{"name":"Russia","value":"18"},{"name":"Argentina","value":21},{"name":"Norway","value":18},{"name":"","value":"312"},{"name":"Brazil","value":"22"},{"name":"Cuba","value":"1"},{"name":"Egypt","value":"3"},{"name":"Estonia","value":"6"},{"name":"Finland","value":"21"},{"name":"Greece","value":"1"},{"name":"Indonesia","value":"2"},{"name":"Iran","value":"2"},{"name":"Ireland","value":"8"},{"name":"Malaysia","value":"31"},{"name":"Mexico","value":"3"},{"name":"New Zealand","value":"2"},{"name":"Pakistan","value":"3"},{"name":"Portugal","value":"16"},{"name":"Puerto Rico","value":"5"},{"name":"Qatar","value":"13"},{"name":"Sudan","value":"3"},{"name":"Taiwan","value":"496"},{"name":"Thailand","value":"4"},{"name":"Turkey","value":"83"},{"name":"United Arab Emirates","value":"6"},{"name":"Vietnam","value":"4"}];
+    echarts.init(document.getElementById('worldMap'), "macarons");
+    var mapChart;
+
+    //初始化地图
+    (function () {
+        mapChart = echarts.init(document.getElementById('worldMap'), "macarons");
+        var mapOption = {
+            //backgroundColor:"#64b7ed",
+            tooltip: {
+                trigger: 'item',
+                color: '#a4edba',
+                formatter: function (params) {
+                    //console.log(params);
+                    if (params.value) {
+                        var value = params.value;
+                        return params.name + ' : ' + value;
+                    } else {
+                        return params.name + ' : -';
+                    }
+                }
+            },
+            series: [{
+                name: 'distribution state',
+                type: 'map',
+                mapType: 'world',
+                roam: true,
+                itemStyle: {
+                    emphasis: {
+                        label: {
+                            show: false
+                        },
+                        areaColor: "#f68657"
+                    }, //version1
+                    normal: {
+                        borderWidth: 0.2,
+                        borderColor: '#888',
+                        /*color:"#0f0"*/
+                    },
+
+                },
+                data: [
+
+                ],
+            }]
+        };
+        mapChart.setOption(mapOption);
+    }());
+    function renderMap(mapData) {
+        var tempObj = {};
+        let max = 0;
+        let min = 1000000;
+        //流感之外的标尺： 0-500
+        mapData.forEach(function (item) {
+            var dbName = item["name"];
+            if(dbName){
+                var mapName = dbMapName[dbName] ? dbMapName[dbName] : dbName;
+                item["name"] = mapName;
+                tempObj[mapName] = item["value"];
+
+            }
+        });
+        if (max === min) {
+            min = 0;
+        }
+        mapData.sort(function (a, b) {
+            return b.value - a.value
+        });
+
+
+        let topData = getTopNData(mapData, 10);
+        let tableHtml = "";
+        topData.forEach(function (item) {
+            if(item.name){
+                tableHtml += `<tr><td style="font-weight: bold">${item.name}</td><td>${item.value}</td></tr>`
+            }
+        })
+        $(".table").html('<tr style="font-weight: bolder;font-size: 16px"><td>Countries/Regions</td><td>Times</td></tr>' + tableHtml)
+
+        //处理数据
+        var chartData = echartsMapCountryArr.map(function (item) {
+            return {
+                name: item,
+                value: tempObj.hasOwnProperty(item) ? tempObj[item] : null
+            }
+        })
+        mapChart.setOption({
+            series: [{
+                data: chartData
+            }],
+            visualMap: { min:0, max:5000 }
+        });
+    }
+    function getTopNData(dataArr, topN) {
+        return dataArr.filter(item => item.name !== "-").slice(0, topN);
+    }
+    //处理visitData
+    function dealVisitData(data){
+        //找到中国的索引
+        let mainIndex = getIndex(data, "China");
+        let currentValue = Number(data[mainIndex]["value"]);
+        ["Hong Kong", "Taiwan", "Macao"].forEach(function(item){
+            let itemIndex = getIndex(data, item);
+            if(itemIndex !== -1){
+                currentValue += Number(data[itemIndex]["value"])
+                data.splice(itemIndex, 1)
+            }
+        })
+        data[mainIndex]["value"] = currentValue
+    }
+    function getIndex(data, target){
+        return data.findIndex(function(item){
+            return item.name === target
+        })
+    }
+
+    dealVisitData(visitData);
+    renderMap(visitData);
+    new Vue({
+        el: "#statisticContainer",
+        data: {
+            showData:[[
+                {count: "1,884,676", text: "Predicted high confidence ESIs", style:"color:#5A78AD"},
+                {count: "4,068", text: "Known ESIs from literature", style:"color:#C55A11"},
+                {count: "8,341,262", text: "Potential E3 recognizing motifs", style:"color:#773BA5"},
+                {count: "1,757,778", text: "Potential ESI domain pairs", style:"color:#385723"},
+            ],[
+                {count: "303,214", text: "Predicted high confidence DSIs", style:"color:#203864"},
+                {count: "967", text: "Known DSIs from literature", style:"color:#843C0C"},
+                {count: "1,235,895", text: "Potential DUB recognizing motifs", style:"color:#240B55"},
+                {count: "443,642", text: "Potential DSI domain pairs", style:"color:#7F6000"},
+            ]]
+        }
+    })
+
+    let myChart1 = echarts.init(document.getElementById('pieChart1'));
+        let myChart2 = echarts.init(document.getElementById('pieChart2'));
+        let E3_predictedData =  [{"name":"A.carolinensis","value":43052,"itemStyle":{"color":"#c7f961"}},{"name":"A.melanoleuca","value":53292,"itemStyle":{"color":"#fefe66"}},{"name":"B.taurus","value":54549,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":9792,"itemStyle":{"color":"#ffcc33"}},{"name":"C.familiaris","value":51461,"itemStyle":{"color":"#fe9900"}},{"name":"C.intestinalis","value":12245,"itemStyle":{"color":"#ff6303"}},{"name":"C.jacchus","value":45489,"itemStyle":{"color":"#fe4d4d"}},{"name":"C.porcellus","value":44936,"itemStyle":{"color":"#ff3300"}},{"name":"C.savignyi","value":7393,"itemStyle":{"color":"#fe0002"}},{"name":"D.melanogaster","value":16379,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":35353,"itemStyle":{"color":"#e131a4"}},{"name":"E.caballus","value":49476,"itemStyle":{"color":"#993399"}},{"name":"F.catus","value":45325,"itemStyle":{"color":"#69329a"}},{"name":"G.aculeatus","value":33542,"itemStyle":{"color":"#340067"}},{"name":"G.gallus","value":30407,"itemStyle":{"color":"#0000fd"}},{"name":"G.gorilla","value":51615,"itemStyle":{"color":"#404cc4"}},{"name":"H.sapiens","value":64026,"itemStyle":{"color":"#353299"}},{"name":"L.africana","value":53958,"itemStyle":{"color":"#6d6dfe"}},{"name":"M.domestica","value":46323,"itemStyle":{"color":"#336799"}},{"name":"M.gallopavo","value":36416,"itemStyle":{"color":"#3398cc"}},{"name":"M.lucifugus","value":50859,"itemStyle":{"color":"#05b2b7"}},{"name":"M.mulatta","value":47491,"itemStyle":{"color":"#006636"}},{"name":"M.musculus","value":59842,"itemStyle":{"color":"#00c763"}},{"name":"N.leucogenys","value":48102,"itemStyle":{"color":"#349933"}},{"name":"O.anatinus","value":25779,"itemStyle":{"color":"#669934"}},{"name":"O.cuniculus","value":44200,"itemStyle":{"color":"#7acb00"}},{"name":"O.latipes","value":27461,"itemStyle":{"color":"#99cc67"}},{"name":"P.abelii","value":54086,"itemStyle":{"color":"#cdcc34"}},{"name":"P.marinus","value":1825,"itemStyle":{"color":"#fca72e"}},{"name":"P.troglodytes","value":54589,"itemStyle":{"color":"#50349a"}},{"name":"R.norvegicus","value":55317,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":3391,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":4165,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":40610,"itemStyle":{"color":"#fdaec9"}},{"name":"S.tridecemlineatus","value":47109,"itemStyle":{"color":"#f80000"}},{"name":"T.guttata","value":32831,"itemStyle":{"color":"#4b9f53"}},{"name":"T.nigroviridis","value":31587,"itemStyle":{"color":"#deb4b5"}},{"name":"T.rubripes","value":21695,"itemStyle":{"color":"#8080fe"}},{"name":"X.tropicalis","value":31109,"itemStyle":{"color":"#f00"}}];
+        let E3_knownData = [{"name":"A.thaliana","value":78,"itemStyle":{"color":"#000"}},{"name":"B.taurus","value":9,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":38,"itemStyle":{"color":"#ffcc33"}},{"name":"D.melanogaster","value":49,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":18,"itemStyle":{"color":"#e131a4"}},{"name":"E.nidulans","value":1,"itemStyle":{"color":"#8d8d8d"}},{"name":"G.gallus","value":4,"itemStyle":{"color":"#0000fd"}},{"name":"H.sapiens","value":2928,"itemStyle":{"color":"#353299"}},{"name":"M.musculus","value":565,"itemStyle":{"color":"#00c763"}},{"name":"O.cuniculus","value":1,"itemStyle":{"color":"#7acb00"}},{"name":"P.abelii","value":5,"itemStyle":{"color":"#cdcc34"}},{"name":"R.norvegicus","value":70,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":224,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":5,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":2,"itemStyle":{"color":"#fdaec9"}}]
+        let DUB_predictedData = [{"name":"A.carolinensis","value":18312,"itemStyle":{"color":"#c7f961"}},{"name":"A.melanoleuca","value":22123,"itemStyle":{"color":"#fefe66"}},{"name":"B.taurus","value":21636,"itemStyle":{"color":"#fce5af"}},{"name":"C.elegans","value":4597,"itemStyle":{"color":"#ffcc33"}},{"name":"C.familiaris","value":21073,"itemStyle":{"color":"#fe9900"}},{"name":"C.intestinalis","value":4574,"itemStyle":{"color":"#ff6303"}},{"name":"C.jacchus","value":18247,"itemStyle":{"color":"#fe4d4d"}},{"name":"C.porcellus","value":19048,"itemStyle":{"color":"#ff3300"}},{"name":"C.savignyi","value":4471,"itemStyle":{"color":"#fe0002"}},{"name":"D.melanogaster","value":7640,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":13658,"itemStyle":{"color":"#e131a4"}},{"name":"E.caballus","value":19837,"itemStyle":{"color":"#993399"}},{"name":"F.catus","value":18370,"itemStyle":{"color":"#69329a"}},{"name":"G.aculeatus","value":15536,"itemStyle":{"color":"#340067"}},{"name":"G.gallus","value":12022,"itemStyle":{"color":"#0000fd"}},{"name":"G.gorilla","value":20431,"itemStyle":{"color":"#404cc4"}},{"name":"H.sapiens","value":27849,"itemStyle":{"color":"#353299"}},{"name":"L.africana","value":21612,"itemStyle":{"color":"#6d6dfe"}},{"name":"M.domestica","value":18332,"itemStyle":{"color":"#336799"}},{"name":"M.gallopavo","value":16434,"itemStyle":{"color":"#3398cc"}},{"name":"M.lucifugus","value":20019,"itemStyle":{"color":"#05b2b7"}},{"name":"M.mulatta","value":20054,"itemStyle":{"color":"#006636"}},{"name":"M.musculus","value":24304,"itemStyle":{"color":"#00c763"}},{"name":"N.leucogenys","value":18854,"itemStyle":{"color":"#349933"}},{"name":"O.anatinus","value":11918,"itemStyle":{"color":"#669934"}},{"name":"O.cuniculus","value":19796,"itemStyle":{"color":"#7acb00"}},{"name":"O.latipes","value":14386,"itemStyle":{"color":"#99cc67"}},{"name":"P.abelii","value":22241,"itemStyle":{"color":"#cdcc34"}},{"name":"P.marinus","value":650,"itemStyle":{"color":"#fca72e"}},{"name":"P.troglodytes","value":20163,"itemStyle":{"color":"#50349a"}},{"name":"R.norvegicus","value":22682,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":1047,"itemStyle":{"color":"#eee3af"}},{"name":"S.pombe","value":1451,"itemStyle":{"color":"#b7cfe3"}},{"name":"S.scrofa","value":18192,"itemStyle":{"color":"#fdaec9"}},{"name":"S.tridecemlineatus","value":20036,"itemStyle":{"color":"#f80000"}},{"name":"T.guttata","value":15845,"itemStyle":{"color":"#4b9f53"}},{"name":"T.nigroviridis","value":14827,"itemStyle":{"color":"#deb4b5"}},{"name":"T.rubripes","value":10780,"itemStyle":{"color":"#8080fe"}},{"name":"X.tropicalis","value":11069,"itemStyle":{"color":"#f00"}}]
+        let DUB_knownData = [{"name":"A.thaliana","value":2,"itemStyle":{"color":"#000"}},{"name":"C.elegans","value":4,"itemStyle":{"color":"#ffcc33"}},{"name":"D.melanogaster","value":6,"itemStyle":{"color":"#fe336a"}},{"name":"D.rerio","value":3,"itemStyle":{"color":"#e131a4"}},{"name":"H.sapiens","value":868,"itemStyle":{"color":"#353299"}},{"name":"M.musculus","value":79,"itemStyle":{"color":"#00c763"}},{"name":"R.norvegicus","value":4,"itemStyle":{"color":"#cd2626"}},{"name":"S.cerevisiae","value":1,"itemStyle":{"color":"#eee3af"}}]
+        let option = {
+            tooltip: {
+                formatter: '{b}:{c} ({d}%)',
+                trigger: "item"
+            },
+            legend: {
+                orient: 'vertical',
+                top: 40,
+                right: 10,
+                bottom: 40,
+                textStyle: {
+                    fontStyle: 'italic'
+                }
+            },
+            series: [
+                {
+                    name: 'Predicted',
+                    type: 'pie',
+                    radius: ['30%', '45%'],
+                    center: ['30%', '25%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{a}',
+                        show: true,
+                        position: 'center',
+                        fontSize: '30',
+                        fontWeight: 'bold',
+                        color: "#000"
+                    },
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: []
+                },
+                {
+                    name: 'Known',
+                    type: 'pie',
+                    radius: ['30%', '45%'],
+                    center: ['30%', '75%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        formatter: '{a}',
+                        show: true,
+                        position: 'center',
+                        fontSize: '35',
+                        fontWeight: 'bold',
+                        color: "#000"
+                    },
+                    emphasis: {
+                        label: {
+                            show: false,
+                            fontSize: '40',
+                            fontWeight: 'bold'
+                        },
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: []
+                }
+            ]
+        };
+        let option1 = option
+        option1.series[0].data = E3_predictedData
+        option1.series[1].data = E3_knownData
+        myChart1.setOption(option1);
+
+        let option2 = option
+        option2.series[0].data = DUB_predictedData
+        option2.series[1].data = DUB_knownData
+        myChart2.setOption(option2);
+</script></div></body></html>
